@@ -12,11 +12,11 @@
     pubsub.subscriptions.get = "https://pubsub.googleapis.com/v1/projects/{project}/subscriptions/{sub}",
     pubsub.subscriptions.getIamPolicy = "https://pubsub.googleapis.com/v1/projects/{project}:getIamPolicy",
     pubsub.subscriptions.list = "https://pubsub.googleapis.com/v1/projects/{project}/subscriptions",
-    pubsub.subscriptions.modifyAckDeadline = "",
-    pubsub.subscriptions.modifyPushConfig = "",
-    pubsub.subscriptions.pull = "",
-    pubsub.subscriptions.setIamPolicy = "",
-    pubsub.subscriptions.testIamPermissions = "",
+    pubsub.subscriptions.modifyAckDeadline = "https://pubsub.googleapis.com/v1/projects/{project}/subscriptions/{sub}:modifyAckDeadline",
+    pubsub.subscriptions.modifyPushConfig = "https://pubsub.googleapis.com/v1/projects/{project}/subscriptions/{sub}:modifyPushConfig",
+    pubsub.subscriptions.pull = "https://pubsub.googleapis.com/v1/projects/{project}/subscriptions/{sub}:pull",
+    pubsub.subscriptions.setIamPolicy = "https://pubsub.googleapis.com/v1/projects/{project}:setIamPolicy",
+    pubsub.subscriptions.testIamPermissions = "https://pubsub.googleapis.com/v1/{resource}:testIamPermissions",
 
     # Topics Collection
     pubsub.topics.create = "",

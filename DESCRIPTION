@@ -1,0 +1,9 @@
+Package: rgooglepubsub
+Type: Package
+Title: This package serves as a wrapper for google pubsub utility
+Version: 0.1.0
+Author: Hairizuan
+Maintainer: <hairizuanbinnoorazman@gmail.com>
+Description: This packages serves as a convenient way to communicate with the Google Pubsub utility tool
+License: What license is it under?
+LazyData: TRUE

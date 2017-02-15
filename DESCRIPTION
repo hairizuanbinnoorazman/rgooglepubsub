@@ -4,6 +4,8 @@ Title: This package serves as a wrapper for google pubsub utility
 Version: 0.1.0
 Author: Hairizuan
 Maintainer: <hairizuanbinnoorazman@gmail.com>
-Description: This packages serves as a convenient way to communicate with the Google Pubsub utility tool
+Description: This packages serves as a convenient way to communicate with the
+    Google Pubsub utility tool
 License: MIT + file LICENSE
 LazyData: TRUE
+RoxygenNote: 5.0.1

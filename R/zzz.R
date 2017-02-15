@@ -19,17 +19,17 @@
     pubsub.subscriptions.testIamPermissions = "https://pubsub.googleapis.com/v1/{resource}:testIamPermissions",
 
     # Topics Collection
-    pubsub.topics.create = "",
-    pubsub.topics.delete = "",
-    pubsub.topics.get = "",
-    pubsub.topics.getIamPolicy = "",
-    pubsub.topics.list = "",
-    pubsub.topics.publish = "",
-    pubsub.topics.setIamPolicy = "",
-    pubsub.topics.testIamPermissions = "",
+    pubsub.topics.create = "https://pubsub.googleapis.com/v1/projects/{project}/topics/{topic}",
+    pubsub.topics.delete = "https://pubsub.googleapis.com/v1/projects/{project}/topics/{topic}",
+    pubsub.topics.get = "https://pubsub.googleapis.com/v1/projects/{project}/topics/{topic}",
+    pubsub.topics.getIamPolicy = "https://pubsub.googleapis.com/v1/{resource}:getIamPolicy",
+    pubsub.topics.list = "https://pubsub.googleapis.com/v1/projects/{project}/topics",
+    pubsub.topics.publish = "https://pubsub.googleapis.com/v1/projects/{project}/topics/{topic}:publish",
+    pubsub.topics.setIamPolicy = "https://pubsub.googleapis.com/v1/{resource}:setIamPolicy",
+    pubsub.topics.testIamPermissions = "https://pubsub.googleapis.com/v1/{resource}:testIamPermissions",
 
     # Subscriptions in Topics Collection
-    pubsub.topic.subscription.list = ""
+    pubsub.topic.subscription.list = "https://pubsub.googleapis.com/v1/projects/{project}/topics/{topic}/subscriptions"
   )
   toset <- !(names(op.pubsub) %in% names(op))
   if (any(toset)) options(op.pubsub[toset])

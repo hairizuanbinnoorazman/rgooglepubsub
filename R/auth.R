@@ -17,7 +17,7 @@ get_token <- function() {
 #' This package does not provide a default credential for testing. In order to test out the functions, you
 #' would need to enable the Google Pubsub API and obtain the auth JSON file for this. Authentication for this
 #' is done via a service account
-#' @importFrom httr oauth_endpoints oauth_service_token
+#' @importFrom httr oauth_endpoints oauth_service_token oauth_endpoints
 #' @importFrom jsonlite fromJSON
 #' @param json_service_account_file A Service Account Authentication file location. Do ensure that it is in the JSON format
 #' This is obtained from Google API Credentials

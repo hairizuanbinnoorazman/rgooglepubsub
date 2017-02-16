@@ -19,3 +19,6 @@ pull_messages <- function(project, subscription, returnImmediately, maxMessages)
   result_content <- content(result)
   return(result_content)
 }
+
+# Acknowledge messages from subscription
+

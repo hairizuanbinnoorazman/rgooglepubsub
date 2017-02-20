@@ -43,6 +43,25 @@ create_subscription <- function(project, subscription, topic, pushConfig = NULL,
 }
 
 
+#' Delete subscriptions
+#' @param project Name of Google Cloud Project
+#' @param subscription Name of the subscription available for consuming messages
+#' @importFrom httr DELETE config accept_json content
+#' @export
+delete_subscriptions <- function(project, subscription){
+  # Get URL endpoint
+  url <- get_endpoint('pubsub.subscriptions.delete', project, sub = subscription)
+  # Get service account credentials
+  token <- get_token()
+  config <- httr::config(token=token)
+  # Run the delete request
+  result <- httr::DELETE(url, config = config, accept_json(), encode = 'json')
+  result_content <- content(result)
+  return(result_content)
+}
+
+
+
 #' List Subscriptions available in current Google Pubsub project
 #' @param project Name of Google Cloud Project
 #' @param pageSize Maximum number of topic names to return.

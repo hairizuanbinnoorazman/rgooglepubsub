@@ -20,5 +20,21 @@ pull_messages <- function(project, subscription, returnImmediately, maxMessages)
   return(result_content)
 }
 
-# Acknowledge messages from subscription
-
+#' Acknowledge messages from subscription
+#' @param project Name of Google Cloud Project
+#' @param subscription Name of the subscription available for consuming messages
+#' @param ackIds List of acknowledge IDs to be sent to the Google Pubsub service
+#' @importFrom httr POST config accept_json content
+#' @export
+acknowledge_messages <- function(project, subscription, ackIds){
+  # Get URL endpoint
+  url <- get_endpoint('pubsub.subscriptions.acknowledge', project, sub = subscription)
+  # Get service account credentials
+  token <- get_token()
+  config <- httr::config(token=token)
+  # Prepare the POST params
+  params = list(ackIds = list(ackIds))
+  result <- httr::POST(url, config = config, accept_json(), body = params, encode = 'json')
+  result_content <- content(result)
+  return(result_content)
+}

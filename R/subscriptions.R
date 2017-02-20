@@ -18,6 +18,31 @@ acknowledge_messages <- function(project, subscription, ackIds){
 }
 
 
+#' Create new subscription
+#' @param project Name of Google Cloud Project
+#' @param subscription Name of the subscription available for consuming messages
+#' @param topic The name of the topic from which this subscription is receiving messages.
+#' @param pushConfig Named list of key and value pairs that would be used as attributes
+#' @param ackDeadlineSeconds This value is the maximum time after a subscriber receives
+#' a message before the subscriber should acknowledge the message. It will only take a minimum of
+#' 10s and a maximum of 600s
+#' @importFrom httr PUT config accept_json content
+#' @export
+create_subscription <- function(project, subscription, topic, pushConfig = NULL, ackDeadlineSeconds = 10){
+  # Get URL endpoint
+  url <- get_endpoint('pubsub.subscriptions.create', project, sub = subscription)
+  # Get service account credentials
+  token <- get_token()
+  config <- httr::config(token=token)
+  # Prepare the PUT params
+  params = list(topic = paste0("projects/", project, "/topics/", topic),
+                pushConfig = pushConfig, ackDeadlineSeconds = ackDeadlineSeconds)
+  result <- httr::PUT(url, config = config, accept_json(), body = params, encode = 'json')
+  result_content <- content(result)
+  return(result_content)
+}
+
+
 #' List Subscriptions available in current Google Pubsub project
 #' @param project Name of Google Cloud Project
 #' @param pageSize Maximum number of topic names to return.

@@ -3,6 +3,7 @@
 export(acknowledge_messages)
 export(authorize)
 export(get_endpoint)
+export(list_subscriptions)
 export(list_topics)
 export(publish_message)
 export(pull_messages)

@@ -18,6 +18,26 @@ acknowledge_messages <- function(project, subscription, ackIds){
 }
 
 
+#' List Subscriptions available in current Google Pubsub project
+#' @param project Name of Google Cloud Project
+#' @param pageSize Maximum number of topic names to return.
+#' @param pageToken The value returned by the last ListTopicsResponse; indicates that this
+#' is a continuation of a prior topics.list call, and that the system should return the
+#' next page of data.
+#' @importFrom httr GET config accept_json content
+#' @export
+list_subscriptions <- function(project, pageSize, pageToken){
+  # Get URL endpoint
+  url <- get_endpoint('pubsub.subscriptions.list', project)
+  # Get service account credentials
+  token <- get_token()
+  config <- httr::config(token=token)
+  result <- httr::GET(url, config = config, accept_json(), encode = 'json')
+  result_content <- content(result)
+  return(result_content)
+}
+
+
 #' Pull messages from a subscription
 #' @param project Name of Google Cloud Project
 #' @param subscription Name of the subscription available for consuming messages
